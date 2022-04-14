@@ -587,10 +587,10 @@
             }));
   })();
   
-  const input = document.getElementById("input");
+function getSHA(input){
   const hashMe = () => {
     const hash = sha256(input.value).toUpperCase();
     console.log(hash);
     document.getElementById("output").innerHTML = hash;
   };
-  
+}
