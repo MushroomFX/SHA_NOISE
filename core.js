@@ -592,3 +592,17 @@ function get_SHA(input){
     console.log(hash);
     return hash;
 }
+
+function SHAnoise(sizeX, sizeY, offseX, offseY) {
+    var arr = [];
+    for(i=0;i<sizeY;i++){
+        var temp = []
+        for(j=0;j<sizeX;j++){
+            var x = offseX
+            var y = offseY*sizeX
+            temp.push(j+(i*sizeX)+x+y)
+        }   
+        arr.push(temp)
+    }
+    return arr;
+}
