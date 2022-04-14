@@ -593,7 +593,7 @@ function get_SHA(input){
     return hash;
 }
 
-function GenSHA_Noise(sizeX, sizeY, offseX, offseY) {
+function GenSHA_Noise(sizeX, sizeY, offseX, offseY, brightness) {
     var arr = [];
     for(i=0;i<sizeY;i++){
         var temp = []
@@ -607,19 +607,23 @@ function GenSHA_Noise(sizeX, sizeY, offseX, offseY) {
     return(arr)
 }
 
-function SHAarr_Noise(sizeX, sizeY, offseX, offseY){
-    var input = GenSHA_Noise(sizeX, sizeY, offseX, offseY)
+function SHAarr_Noise(sizeX, sizeY, offseX, offseY, brightness,contrast){
+    const input = GenSHA_Noise(sizeX, sizeY, offseX, offseY, brightness,contrast)
     var arr = [];
     for(i=0;i<input.length;i++){
         var temp = [];
         for(j=0;j<input[0].length;j++){
-            var x = input[i][j]+""
-            temp.push(get_SHA(x))
+            var max = parseInt("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 16);
+            var hash = parseInt(get_SHA(input[i][j]+""), 16) /max;
+            hash += brightness
+            if (hash>1){hash = 1}
+
+            temp.push(hash)
         }
         arr.push(temp)
     }
-    // return(input);
+    console.log(arr)
     return(arr)
 }
 
-var x = SHAarr_Noise(10,4,3,0)
+var x = SHAarr_Noise(10,4,0,1,0.5)
