@@ -626,4 +626,4 @@ function SHAarr_Noise(sizeX, sizeY, offseX, offseY, brightness,contrast){
     return(arr)
 }
 
-var x = SHAarr_Noise(10,4,0,1,0.5)
+var x = SHAarr_Noise(100,55,0,0,0)

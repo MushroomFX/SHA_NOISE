@@ -1,0 +1,15 @@
+
+body{
+    background-color:#1d2a35!important;
+    margin:1em
+}
+table {
+    /* transform: translate(calc(50vw - 50%) ,calc(50vh - 50%)); */
+    border-collapse: collapse;
+    color:#ddd;
+    position:absolute;
+  }
+td, th {
+    padding: 0px;
+  }
+td:hover {filter:invert(100%)}
