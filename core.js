@@ -589,11 +589,11 @@
   
 function get_SHA(input){
     const hash = sha256(input).toUpperCase();
-    console.log(hash);
+    // console.log(hash);
     return hash;
 }
 
-function GenArr(sizeX, sizeY, offseX, offseY) {
+function GenSHA_Noise(sizeX, sizeY, offseX, offseY) {
     var arr = [];
     for(i=0;i<sizeY;i++){
         var temp = []
@@ -604,20 +604,22 @@ function GenArr(sizeX, sizeY, offseX, offseY) {
         }   
         arr.push(temp)
     }
-    console.log(arr)
+    return(arr)
 }
 
-function SHAnoise(arr) {
-    var SHA_arr = [];
-    var arr_in = arr
-    for(i=0;i<arr_in.length;i++){
-        var temp = []
-        for(j=0;j<arr_in[0].length;j++){
-            temp.push(SHA_arr[i][j])
-        }   
+function SHAarr_Noise(sizeX, sizeY, offseX, offseY){
+    var input = GenSHA_Noise(sizeX, sizeY, offseX, offseY)
+    var arr = [];
+    for(i=0;i<input.length;i++){
+        var temp = [];
+        for(j=0;j<input[0].length;j++){
+            var x = input[i][j]+""
+            temp.push(get_SHA(x))
+        }
         arr.push(temp)
     }
-    console.log(SHA_arr)
+    // return(input);
+    return(arr)
 }
 
-SHAnoise(10,4,3,0)
+var x = SHAarr_Noise(10,4,3,0)
