@@ -593,7 +593,7 @@ function get_SHA(input){
     return hash;
 }
 
-function SHAnoise(sizeX, sizeY, offseX, offseY) {
+function GenArr(sizeX, sizeY, offseX, offseY) {
     var arr = [];
     for(i=0;i<sizeY;i++){
         var temp = []
@@ -604,5 +604,20 @@ function SHAnoise(sizeX, sizeY, offseX, offseY) {
         }   
         arr.push(temp)
     }
-    return arr;
+    console.log(arr)
 }
+
+function SHAnoise(arr) {
+    var SHA_arr = [];
+    var arr_in = arr
+    for(i=0;i<arr_in.length;i++){
+        var temp = []
+        for(j=0;j<arr_in[0].length;j++){
+            temp.push(SHA_arr[i][j])
+        }   
+        arr.push(temp)
+    }
+    console.log(SHA_arr)
+}
+
+SHAnoise(10,4,3,0)
