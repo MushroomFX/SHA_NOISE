@@ -588,9 +588,7 @@
   })();
   
 function get_SHA(input){
-  const hashMe = () => {
-    const hash = sha256(input.value).toUpperCase();
+    const hash = sha256(input).toUpperCase();
     console.log(hash);
     return hash;
-  };
 }
